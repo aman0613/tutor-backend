@@ -7,13 +7,13 @@ const app = express();
 
 connectDB();
 
-// Enable CORS
 app.use(cors());
-
-// This lets Express read JSON from the request body
 app.use(express.json());
 
-// Register routes
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
+});
+
 app.use("/api/demo-bookings", demoBookingRoutes);
 
 const PORT = process.env.PORT || 5000;
